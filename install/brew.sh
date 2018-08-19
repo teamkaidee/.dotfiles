@@ -1,4 +1,4 @@
-echo "Trying to install Homebrew."
+echo "Installing Homebrew."
 
 if ! is-macos -o ! is-executable ruby -o ! is-executable curl -o ! is-executable git; then
   echo "Skipped: Homebrew (missing: ruby, curl and/or git)"
@@ -12,6 +12,8 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 brew update
 brew upgrade
+
+echo "Installing apps via Homebrew"
 
 apps=(
   git
