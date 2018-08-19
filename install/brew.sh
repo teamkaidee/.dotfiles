@@ -14,10 +14,13 @@ brew update
 brew upgrade
 
 apps=(
-  mackup
   git
+  httpie
+  mackup
   unar
   wget
 )
 
 brew install "${apps[@]}"
+
+ln -sfv "$DOTFILES_DIR/etc/mackup/.mackup.cfg" ~
