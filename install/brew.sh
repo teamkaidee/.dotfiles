@@ -4,3 +4,8 @@ if ! is-macos -o ! is-executable ruby -o ! is-executable curl -o ! is-executable
   echo "Skipped: Homebrew (missing: ruby, curl and/or git)"
   return
 fi
+
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# If installation failed try the following:
+# sudo chown -R $(whoami) /usr/local

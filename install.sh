@@ -13,10 +13,8 @@ PATH="$DOTFILES_DIR/bin:$PATH"
 
 # Bunch of symlinks
 
-echo "Source: ${BASH_SOURCE}"
-echo "Dir: $DOTFILES_DIR"
-
 ln -sfv "$DOTFILES_DIR/.bash_profile" ~
 
+# Package managers & packages
 
-# PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/opt/X11/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands
+. "$DOTFILES_DIR/install/brew.sh"
