@@ -19,6 +19,8 @@ apps=(
   git
   httpie
   mackup
+  pipenv
+  tree
   unar
   wget
 )
