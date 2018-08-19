@@ -9,3 +9,15 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 # If installation failed try the following:
 # sudo chown -R $(whoami) /usr/local
+
+brew update
+brew upgrade
+
+apps=(
+  mackup
+  git
+  unar
+  wget
+)
+
+brew install "${apps[@]}"
