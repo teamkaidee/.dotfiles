@@ -10,7 +10,7 @@ brew tap caskroom/cask
 brew tap caskroom/fonts
 
 apps=(
-  alfred
+  alfred2
   daisydisk
   dash
   dropbox
