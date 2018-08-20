@@ -23,6 +23,7 @@ apps=(
   tree
   unar
   wget
+  zsh
 )
 
 brew install "${apps[@]}"

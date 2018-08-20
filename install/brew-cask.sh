@@ -19,6 +19,7 @@ apps=(
   google-chrome
   google-chrome-canary
   hammerspoon
+  iterm2
   kaleidoscope
   kite
   macdown
