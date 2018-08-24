@@ -13,21 +13,9 @@ fi
 # sudo chown -R $(whoami) /usr/local
 
 brew update
-brew upgrade
 
 echo "Installing apps via Homebrew"
 
-apps=(
-  git
-  httpie
-  mackup
-  pipenv
-  tree
-  unar
-  wget
-  zsh
-)
+brew bundle 
 
-brew install "${apps[@]}"
-
-ln -sfv "$DOTFILES_DIR/etc/mackup/.mackup.cfg" ~
+# ln -sfv "$DOTFILES_DIR/etc/mackup/.mackup.cfg" ~

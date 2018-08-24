@@ -1,0 +1,8 @@
+brew 'git'
+brew 'httpie'
+brew 'mackup'
+brew 'pipenv'
+brew 'tree'
+brew 'unar'
+brew 'wget'
+brew 'zsh'
