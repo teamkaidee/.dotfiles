@@ -15,7 +15,18 @@ PATH="$DOTFILES_DIR/bin:$PATH"
 
 ln -sfv "$DOTFILES_DIR/.bash_profile" ~
 
+# Install Powerline fonts
+
+git clone https://github.com/powerline/fonts.git "$DOTFILES_DIR/fonts/powerline-fonts"
+. "$DOTFILES_DIR/fonts/powerline-fonts/install.sh"
+rm -rf "$DOTFILES_DIR/fonts/powerline-fonts"
+
 # Package managers & packages
 
 . "$DOTFILES_DIR/install/brew.sh"
 . "$DOTFILES_DIR/install/npm.sh"
+
+# Installing Solarized 
+git clone git://github.com/altercation/solarized.git "$DOTFILES_DIR/zsh/solarized"
+
+# Need to manually configure Solarized theme
