@@ -18,5 +18,4 @@ ln -sfv "$DOTFILES_DIR/.bash_profile" ~
 # Package managers & packages
 
 . "$DOTFILES_DIR/install/brew.sh"
-. "$DOTFILES_DIR/install/brew-cask.sh"
 . "$DOTFILES_DIR/install/npm.sh"
