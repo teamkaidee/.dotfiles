@@ -1,16 +1,14 @@
 echo "Installing NPM"
 
-if ! is-executable brew -o ! is-executable git; then
-  echo "Skipped: npm (missing: brew and/or git)"
-  return
-fi
-
-brew install nvm
+# if ! is-executable brew -o ! is-executable git; then
+#   echo "Skipped: npm (missing: brew and/or git)"
+#   return
+# fi
 
 export DOTFILES_BREW_PREFIX_NVM=$(brew --prefix nvm)
 set-config "DOTFILES_BREW_PREFIX_NVM" "$DOTFILES_BREW_PREFIX_NVM" "$DOTFILES_CACHE"
 
-. "${DOTFILES_DIR}/system/.nvm"
+. "$DOTFILES_ROOT/node/.nvm"
 nvm install 8
 nvm alias default 8
 
