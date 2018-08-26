@@ -4,7 +4,14 @@
 
 set -e
 
-cd "$(dirname $0)"/..
+cd "$(dirname "$0")/.."
+
+export DOTFILES_ROOT=$(pwd -P)
+export DOTFILES_CACHE="$DOTFILES_ROOT/.cache.sh"
+export DOTFILES_EXTRA_DIR="$HOME/.extra"
+
+echo "$DOTFILES_ROOT"
+PATH="$DOTFILES_ROOT/bin:$PATH"
 
 # find the installers and run them iteratively
 find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
