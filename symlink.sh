@@ -5,14 +5,15 @@
 
 # Get current dir (so run this script from anywhere)
 
-export DOTFILES_DIR DOTFILES_CACHE DOTFILES_EXTRA_DIR
-DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-DOTFILES_CACHE="$DOTFILES_DIR/.cache.sh"
-DOTFILES_EXTRA_DIR="$HOME/.extra"
-
 set -e
 
 echo ''
+
+cd "$(dirname "$0")/.."
+DOTFILES_ROOT=$(pwd -P)
+
+echo "$DOTFILES_ROOT"
+PATH="$DOTFILES_ROOT/bin:$PATH"
 
 info () {
   printf "\r  [ \033[00;34m..\033[0m ] $1\n"
@@ -135,7 +136,7 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_DIR" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
   do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
