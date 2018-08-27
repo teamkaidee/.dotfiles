@@ -16,6 +16,10 @@ You will need to go to the Preference setting of your iTerm2 as follow:
 - Go to Profile > Colors > Color Presets > Pick `Solarized Dark` or `Solarized Light`
 - Go to Profile > Text > Change Font > Search for `Powerline` > Pick whatever you like but `Noto Mono for Powerline` is pretty nice. 
 
+# Why ZSH?
+
+[See for yourself](https://www.slideshare.net/jaguardesignstudio/why-zsh-is-cooler-than-your-shell-16194692?ref=http://zpalexander.com/switching-to-zsh/)
+
 # How can I customize this for my own use?
 
 Fork into your own repo then configure to your heart content.
