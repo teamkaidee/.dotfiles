@@ -15,6 +15,6 @@ if [ ! -d "$solarized_folder" ]; then
     echo "Cloning Solarzied into $solarized_folder"
     git clone git://github.com/altercation/solarized.git "$DOTFILES_ROOT/zsh/solarized"
 else
-    echo "Pulling Solarzied"
-    git pull
+    echo "Pulling Solarzied in $DOTFILES_ROOT/zsh/solarized"
+    git -C "$DOTFILES_ROOT/zsh/solarized" pull
 fi
