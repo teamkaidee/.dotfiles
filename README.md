@@ -24,5 +24,9 @@ You will need to go to the Preference setting of your iTerm2 as follow:
 
 Fork into your own repo then configure to your heart content.
 
+# Known issue
+
+Installation of Virtualbox (transitive dependency of docker-toolbox) failed due to Apple's [User-Approved Kernel Extension Loading policy](https://developer.apple.com/library/archive/technotes/tn2459/_index.html)
+
 # Shortcuts
 [VS Code OSX Shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
