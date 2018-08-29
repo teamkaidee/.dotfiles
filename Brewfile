@@ -18,6 +18,7 @@ brew 'wget'
 brew 'zsh'
 
 cask 'alfred2'
+cask 'caffeine'
 cask 'daisydisk'
 cask 'dash'
 cask 'docker-toolbox'
