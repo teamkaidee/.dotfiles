@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo "Installing Fonts"
+echo "Installing Fonts into $DOTFILES_ROOT"
 
 # Install Powerline fonts
 powerline_folder="$DOTFILES_ROOT/fonts/powerline-fonts"
