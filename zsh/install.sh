@@ -5,6 +5,7 @@ if ! is-executable brew -o ! is-executable curl; then
   return
 fi
 
+echo "Installing Oh-My-ZSH! into: $ZSH"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 chsh -s $(which zsh)
