@@ -21,7 +21,6 @@ cask 'alfred2'
 cask 'caffeine'
 cask 'daisydisk'
 cask 'dash'
-cask 'docker-toolbox'
 cask 'dropbox'
 cask 'flux'
 cask 'font-fira-code'
@@ -35,7 +34,6 @@ cask 'macdown'
 cask 'slack'
 cask 'sourcetree'
 cask 'sublime-text'
-cask 'virtualbox'
 cask 'visual-studio-code'
 
 # Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
@@ -47,3 +45,6 @@ cask 'qlimagesize'
 cask 'webpquicklook'
 cask 'suspicious-package'
 cask 'qlvideo'
+
+
+# cask 'docker-toolbox'
