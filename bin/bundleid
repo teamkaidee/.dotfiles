@@ -1,0 +1,4 @@
+# Given an application's name, returns its bundle ID
+
+osascript -e "id of application \"$1\"" 2>/dev/null || 
+{ echo "$FUNCNAME: ERROR: Application with specified name not found: $1" 1>&2; return 1; }
