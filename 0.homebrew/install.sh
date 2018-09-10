@@ -15,7 +15,4 @@ fi
 brew update
 
 echo "Installing apps via Homebrew"
-
-brew bundle 
-
-# ln -sfv "$DOTFILES_DIR/etc/mackup/.mackup.cfg" ~
+brew bundle || echo "Reinstalling those packages afterward."
