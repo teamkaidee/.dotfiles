@@ -13,6 +13,12 @@ git clone git@git.24x7th.com:poohdish.r/dotfiles.git ~/.dotfiles
 ~/.dotfiles/script/bootstrap
 ```
 
+# What to do next?
+
+- You might want to consider using Alfred 3 instead of OSX's Spotlight.
+- Switch `Cmd + Space` to switch language input.
+- Switch `Option + Space` to start Alfred
+
 # WTF is Dotfiles?
 
 [Dotfiles](https://dotfiles.github.io/) is a bootstrap script to automate the setup of your softwares, configurations, and environment.
