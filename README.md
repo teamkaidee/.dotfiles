@@ -1,8 +1,17 @@
 # README
 
-Dotfiles for Kaidee developers.
+Dotfiles for Kaidee developers. It's designed for every developer to kickstart their experience developing Kaidee. If you wish to add anything personal, please fork this repository and use your own.
 
 This repo is setup as a baseline for developer to quickly install the application and getting ready to start. The content of this file is largely taken from [Zach Holman's version](https://github.com/holman/dotfiles).
+
+# Installation
+
+Once you add SSH-key to your Gitlab profile then clone and run bootstrap script as follow:
+
+```
+git clone git@git.24x7th.com:poohdish.r/dotfiles.git ~/.dotfiles
+~/.dotfiles/script/bootstrap
+```
 
 # WTF is Dotfiles?
 
