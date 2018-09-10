@@ -24,9 +24,8 @@ You will need to go to the Preference setting of your iTerm2 as follow:
 
 Fork into your own repo then configure to your heart content.
 
-# Python stuff
-
-## [Pipenv](https://pipenv.readthedocs.io/en/latest/)
+# Python
+See [python.md](python.md)
 
 # Shortcuts
 [VS Code OSX Shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
