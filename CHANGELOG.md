@@ -3,6 +3,7 @@
 Notable changes will be documented here.
 
 ## Version 1.0 (19 September 2018)
+
 - Complete basic machine setup
 - Application installed via Brewfile
 - Python development is made easier with `pipenv`
