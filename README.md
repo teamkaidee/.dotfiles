@@ -28,8 +28,9 @@ git clone git@git.24x7th.com:poohdish.r/dotfiles.git ~/.dotfiles
 This script prioritise `iTerm2` and `ZSH` with [**Oh My ZSH!**](https://github.com/robbyrussell/oh-my-zsh) based configuration. It will setup [`agnoster`](https://github.com/agnoster/agnoster-zsh-theme) theme by default however this does not perfectly working out of the box and require manual setup to work. The script will installs the required fonts([Powerline](https://github.com/powerline/fonts)) and [Solarized](https://ethanschoonover.com/solarized/) colorscheme for it to be ready to use.
 
 You will need to go to the Preference setting of your iTerm2 as follow:
+
 - Go to Profile > Colors > Color Presets > Pick `Solarized Dark` or `Solarized Light`
-- Go to Profile > Text > Change Font > Search for `Powerline` > Pick whatever you like but `Noto Mono for Powerline` is pretty nice. 
+- Go to Profile > Text > Change Font > Search for `Powerline` > Pick whatever you like but `Noto Mono for Powerline` is pretty nice.
 
 # Why ZSH?
 
@@ -40,7 +41,25 @@ You will need to go to the Preference setting of your iTerm2 as follow:
 Fork into your own repo then configure to your heart content.
 
 # Python
+
 See [python.md](python.md)
 
+# What's next?
+
+## Use Alfred instead of Spotlight
+
+You may want to disable OSX's Spotlight with [Alfred](https://www.alfredapp.com/) for it is much more powerful version to improve productivity. You can do this by:
+
+1. Go to Preferences > Keyboard > Shortcuts > Spotlight.
+2. Remove "Show Spotlight search" shortcut.
+
+## Configure Input Sources
+
+By default OSX use "^+Space" to switch between input sources(language), the key position is rather awkward. If you switch to use Alfred, you will no longer need the "⌘+Space" shortcut. You should change this to be used for language switching instead.
+
+1. Go to Preferences > Keyboard > Shortcuts > Input Sources
+2. Click on the old shortcut then press "⌘+Space".
+
 # Shortcuts
+
 [VS Code OSX Shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
