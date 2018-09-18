@@ -6,9 +6,12 @@ code --install-extension dkundel.vscode-new-file
 code --install-extension ms-python.python
 code --install-extension donjayamanne.githistory
 code --install-extension esbenp.prettier-vscode
+code --install-extension eamodio.gitlens
 
 # Install JS plugins
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension eg2.vscode-npm-script
 code --install-extension christian-kohler.npm-intellisense
 code --install-extension jpoissonnier.vscode-styled-components
+
+code --install-extension ms-vsliveshare.vsliveshare
