@@ -2,4 +2,4 @@
 
 forti_dir="$(brew cask info forticlient | grep Caskroom | cut -d ' ' -f 1)"
 
-if ! whichapp 'forticlient' &>/dev/null; then open -a "$forti_dir/FortiClientUpdate.app"
+if ! whichapp 'forticlient' &>/dev/null; then open -a "$forti_dir/FortiClientUpdate.app"; fi
