@@ -6,10 +6,10 @@ alias helmdelpurge="helm delete --purge"
 ##########################
 # Helping commands - Kubectl
 ##########################
-alias kcdelpo="kc delete po $*"
-alias kcdelpof="kc delete po --force --grace-period 0 $*"
-alias kcdelnsf="kubectl delete ns --grace-period=0 --force $*"
-alias kcdelns="kubectl delete ns $*"
+alias kcdelpo="kc delete po $@"
+alias kcdelpof="kc delete po --force --grace-period 0 $@"
+alias kcdelnsf="kubectl delete ns --grace-period=0 --force $@"
+alias kcdelns="kubectl delete ns $@"
 
 
 ##########################
@@ -42,13 +42,13 @@ helmpurgepdm () {
 # Patch deployment to redeploy
 #  And badge event on graphite
 ##########################
+ts_host="graphite"
 kcpredeploy () {
   while read -r app; do
-    kubectl patch deployment $app \
-      -p "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"redeploy\":\"`TZ=:Asia/Bangkok date +'%d%m%Y%H%M%s'`\"}}}}}"
-    curl -s -X POST https://graphite.prd.kaidee.com/events/ \
-      -d "{ \"what\": \"Deploy $app version \", \"data\": \"URL: \", \"tags\": \"redeploy $1 manual\" }"
-  done < <(echo "$*" | tr ' ' '\n')
+    kubectl rollout restart deploy ${app}
+    curl -s -X POST https://${ts_host}/events/ \
+      -d "{ \"what\": \"Deploy ${app} version \", \"data\": \"URL: \", \"tags\": \"redeploy ${app} manual\" }"
+  done < <(echo "$@" | tr ' ' '\n')
 }
 
 ##########################
