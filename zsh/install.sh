@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo "Installing ZSH"
 
 if ! is-executable brew -o ! is-executable curl; then
@@ -5,8 +7,16 @@ if ! is-executable brew -o ! is-executable curl; then
   return
 fi
 
-echo "Installing Oh-My-ZSH! into: $ZSH"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  echo "Installing Oh-My-ZSH! into: $ZSH"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+else
+  echo "Pulling Oh-My-ZSH"
+  git -C "$HOME/.oh-my-zsh" pull
+fi
+
+echo "Installing themes into $HOME/.oh-my-zsh/custom"
+sh theme.sh
 
 if [ -f ~/.zshrc.pre-oh-my-zsh ] || [ -h ~/.zshrc.pre-oh-my-zsh ]; then
   echo "Found and restored ~/.zshrc.pre-oh-my-zsh"
