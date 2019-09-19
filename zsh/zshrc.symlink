@@ -23,6 +23,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="agnoster"
 ZSH_THEME="spaceship"
+#ZSH_THEME="powerlevel9k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -170,3 +171,45 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Fuzzy search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#
+# POWERLEVEL9K THEME CONFIG
+#
+# Nerd default theme
+if [[ "$ZSH_THEME" == "powerline9k" ]]; then
+  source "$ZSH_CUSTOM/themes/powerlevel9k/powerlevel9k.zsh-theme"
+fi
+POWERLEVEL9K_MODE='nerdfont-complete'
+# Customizing Prompt Segments Config
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0.25
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=2
+#POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+#POWERLEVEL9K_SHORTEN_DELIMITER=".."
+#POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_first_and_last"
+POWERLEVEL9K_AWS_BACKGROUND='209'
+POWERLEVEL9K_AWS_FOREGROUND='black'
+POWERLEVEL9K_KUBECONTEXT_BACKGROUND='216'
+POWERLEVEL9K_KUBECONTEXT_FOREGROUND='black'
+# Customise the Powerlevel9k prompts
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
+  aws kubecontext newline os_icon virtualenv dir vcs
+)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time)
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+#POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE_COUNT=1
+# Add the custom freeCodeCamp prompt segment
+POWERLEVEL9K_CUSTOM_FREECODECAMP="echo -n '\uE242' freeCodeCamp"
+POWERLEVEL9K_CUSTOM_FREECODECAMP_FOREGROUND="white"
+POWERLEVEL9K_CUSTOM_FREECODECAMP_BACKGROUND="cyan"
+# custom github logo
+POWERLEVEL9K_CUSTOM_GITHUBLOGO="echo -n '\uf113'"
+POWERLEVEL9K_CUSTOM_GITHUBLOGO_FOREGROUND="black"
+POWERLEVEL9K_CUSTOM_GITHUBLOGO_BACKGROUND="white"
+
+#
+# SPACESHIP THEME CONFIG
+#
+# https://denysdovhan.com/spaceship-prompt/docs/Options.html
+
