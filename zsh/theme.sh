@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-CUSTOM="$HOME/.oh-my-zsh/custom"
+ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 
 # Installing Solarized
 solarized_folder="$ZSH_CUSTOM/themes/solarized"
