@@ -16,7 +16,7 @@ else
 fi
 
 echo "Installing themes into $HOME/.oh-my-zsh/custom"
-sh theme.sh
+sh $DOTFILES_ROOT/zsh/theme.sh
 
 if [ -f ~/.zshrc.pre-oh-my-zsh ] || [ -h ~/.zshrc.pre-oh-my-zsh ]; then
   echo "Found and restored ~/.zshrc.pre-oh-my-zsh"
