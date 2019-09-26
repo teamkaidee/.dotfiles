@@ -10,7 +10,7 @@ python2.7 get-pip.py
 
 
 if pip -V | grep "python 3"; then
-  if pip freeze | grep virtualenvwrapper; then
+  if ! pip freeze | grep virtualenvwrapper; then
     echo "Installing virtualenvwrapper"
     pip install virtualenvwrapper
   fi
