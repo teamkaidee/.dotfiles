@@ -1,10 +1,10 @@
 
 # Setup Ruby Environment
-# Set global to use version 2.5.1 (Mainly to move it away from system's version of Ruby)
+# Set global to use version 2.6.6 (Mainly to move it away from system's version of Ruby)
 echo "Installing Ruby"
 eval "$(rbenv init -)"
-rbenv install 2.5.1
-rbenv global 2.5.1
+rbenv install 2.6.6
+rbenv global 2.6.6
 ruby --version
 
 # Install and link bundle with rbenv
