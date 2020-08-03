@@ -6,10 +6,10 @@ This repo is setup as a baseline for developer to quickly install the applicatio
 
 # Installation
 
-Once you add SSH-key to your Gitlab profile then clone and run bootstrap script as follow:
+Once you add SSH-key to your GitHub profile then clone and run bootstrap script as follow:
 
 ```
-git clone git@git.24x7th.com:poohdish.r/dotfiles.git ~/.dotfiles
+git clone git@github.com:teamkaidee/.dotfiles.git ~/.dotfiles
 ~/.dotfiles/script/bootstrap
 ```
 
