@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.1.0] - 13 March 2023
+
+### Added
+
 * Brewfile
     - `mysql` it's a requirement in some projects
 
@@ -45,10 +59,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
         + `sublime-text`
         + `the-unarchiver`
         + `visual-studio-code`
-
-### Fixed
-
-### Security
 
 ## [1.0.0] - 19 September 2018
 
