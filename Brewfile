@@ -21,6 +21,7 @@ brew 'rust'
 brew 'tree'
 brew 'unar'
 brew 'wget'
+brew 'circleci'
 
 cask 'docker'
 cask 'google-chrome'
