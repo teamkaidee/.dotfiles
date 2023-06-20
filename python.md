@@ -21,9 +21,11 @@ This repo installed the following packages:
 ### Installing additional python versions
 
 * To view all available python versions to pyenv, run the list command.
-    - Note that there's a lot of versions, and you should hardly need to tun this command.
+    - Note that there's a lot of versions. if you're looking for a specific version piping it to `grep <version>` would make more sense.
     ```bash
     pyenv install -l
+
+    pyenv install -l | grep <python version you want to find here>
     ```
 * To install a particular python version:
     ```bash
@@ -45,6 +47,16 @@ This repo installed the following packages:
     ```
     - This is the command that we will use most of the time.
     - On each repository, we should run this at least once, to "fix" the python version that should be used in each service
+* To set a python as the default for the shell, run
+    ```bash
+    pyenv shell <version>
+    ```
+    - This will set the python version as the default for current shell session only
+    - exiting the session will render this setting useless
+* To set a python version as the "default" for the user, run
+    ```bash
+    pyenv global <version
+    ```
 
 ## Pipenv
 
@@ -54,8 +66,7 @@ This repo installed the following packages:
 
 ### Setting up pipenv in each repository
 
-* In each repository, run:
-    - # TODO: Fix this to use `pipenv sync` instead. `install` should only be used for new dependencies
+* If the repository is new or has not been initialised with pipenv (does not have Pipfile and/or Pipfile.lock), run
     ```bash
     pipenv install --python <python version> -r dependencies/requirements-dev.txt
     ```
@@ -63,7 +74,19 @@ This repo installed the following packages:
     - This is because pipenv can only use a python version that can be found on the $PATH. So even if you have the desired version installed, but it's not selected / activated by pyenv, it wouldn't be found.
     - Note that if you have Oh my zsh, you can simply use the `pipenv` plugin, which auto activates the virtual environment on entry to the repo. It also auto deactivates when you try to navigate out of the repository. (But not if u directly navigate into another repo that has pipfile)
     - The `-r` flag tells pipenv to read the dependencies required from a requirements.txt file. In most, if not all, repositories, this file is nested within the dependencies folder, and usually for local we have a `requirements-dev` file.
-* The installation command will then create said python "virtual environment" and also register all the information in the aforementined pipfile.
+    - The installation command will then create said python "virtual environment" and also register all the information in the aforementined pipfile.
+* If the repository already has a Pipfile.lock, run
+    ```bash
+    pipenv sync
+    ```
+    - This will read the contents of Pipfile.lock and create a virtual environment based on it
+
+### Updating the virtual environment in each repository
+* Sometimes new packages are added to existing repositories
+* When you see a change in Pipfile.lock upon checking out the latest version, you can simply run sync again to keep your environment up to date
+    ```bash
+    pipenv sync
+    ```
 
 ### Activating the virtual environment in each repository
 
@@ -73,6 +96,7 @@ This repo installed the following packages:
     ```
     - This is actually an alias, but just know that it will spawn a shell.
     - If you do not modify your shell prompt, it will prepend your prompt with the name of the virtual environment.
+    - It's recommended to simply use the Oh My Zsh pipenv plugin
 * You can now run python in the repository with all the required dependencies.
 
 ### Deactivating virtual environment
@@ -120,3 +144,8 @@ This is extremely important when you need to switch repositories (and likely int
     ```bash
     pipenv install --dev -r requirements.txt
     ```
+* Also remember to update the virtual environment for your other fellow developers
+    ```bash
+    pipenv lock
+    ```
+    - This updates the Pipfile.lock file, so that other developers can see the new packages you've installed

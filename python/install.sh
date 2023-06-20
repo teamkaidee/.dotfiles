@@ -10,4 +10,11 @@ echo "installing required python versions"
 pyenv install -s  3.7.16
 pyenv install -s  3.8.16
 pyenv install -s  3.10.10
-pyenv install -s  3.11.1
+pyenv install -s  3.11
+
+echo "setting global python version to 3.11"
+pyenv global 3.11
+
+# Install pipenv. This is the recommended installation
+echo "installing pipenv"
+pip install --user pipenv
