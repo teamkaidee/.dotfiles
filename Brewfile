@@ -1,39 +1,13 @@
-cask_args appdir: '/Applications'
+brew "awscli"
+brew "circleci"
+brew "kubernetes-cli", link: false
+brew "libcouchbase@2", link: true
+brew "mysql", restart_service: true
+brew "postgresql"
+brew "redis", restart_service: true
+brew "pyenv"
 
-# Tap Repo
-tap 'caskroom/versions'
-tap 'caskroom/cask'
-tap 'caskroom/fonts'
-
-brew 'git'
-brew 'httpie'
-brew 'libcouchbase'
-brew 'mackup'
-brew 'mysql'
-brew 'nvm'
-brew 'pipenv'
-brew 'postgresql'
-brew 'pyenv'
-brew 'rbenv'
-brew 'rbenv-bundler'
-brew 'ruby-build'
-brew 'rust'
-brew 'tree'
-brew 'unar'
-brew 'wget'
-brew 'circleci'
-
-cask 'docker'
-cask 'google-chrome'
-cask 'postman'
-cask 'slack'
-
-# Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
-cask 'qlcolorcode'
-cask 'qlstephen'
-cask 'qlmarkdown'
-cask 'quicklook-json'
-cask 'qlimagesize'
-cask 'webpquicklook'
-cask 'suspicious-package'
-cask 'qlvideo'
+cask "docker"
+cask "google-chrome"
+cask "postman"
+cask "slack"

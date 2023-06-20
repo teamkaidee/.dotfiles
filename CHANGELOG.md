@@ -23,12 +23,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 * Brewfile
+    - `awscli` to interact with aws
+    - `kubernetes-cli` for k8s cluster
     - `mysql` it's a requirement in some projects
+    - `redis`
 
 ### Changed
 
 * Update changelog format
 * Updated python.md to better reflect how to use `pyenv` and `pipenv`
+* Update the way homebrew is installed, to use the latest method as mentioned in [brew.sh](https://brew.sh/)
+* Brewfile
+    - fixed version of `libcouchbase` to `libcouchbase@2`
 
 ### Deprecated
 
@@ -40,6 +46,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 * Brewfile
     - `zsh` as it's now the default mac shell
     - `fortinet` as it's no longer in use
+    - cask taps as brew no longer needs it
+    - `git` as there's a version that comes with macOS
     - a bunch of qol tools that aren't a necessity but a good-to-have
         + `alfred`
         + `caffeine`
@@ -51,14 +59,29 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
         + `forticlient`
         + `google-chrome-canary`
         + `hammerspoon`
+        + `httpie`
         + `iterm2`
         + `kaleidoscope`
         + `kite`
         + `macdown`
+        + `mackup`
+        + `nvm`
+        + `rbenv`
+        + `rbenv-bundler`
+        + `ruby-build`
+        + `rust`
         + `sourcetree`
         + `sublime-text`
         + `the-unarchiver`
+        + `tree`
+        + `unar`
         + `visual-studio-code`
+        + `wget`
+    - All the quick look plugins stuffs
+* zsh
+    - Removed custom `.zshrc`
+    - Removed custom aliases
+    - Removed custom config
 
 ## [1.0.0] - 19 September 2018
 

@@ -55,6 +55,7 @@ This repo installed the following packages:
 ### Setting up pipenv in each repository
 
 * In each repository, run:
+    - # TODO: Fix this to use `pipenv sync` instead. `install` should only be used for new dependencies
     ```bash
     pipenv install --python <python version> -r dependencies/requirements-dev.txt
     ```
@@ -83,6 +84,24 @@ This is extremely important when you need to switch repositories (and likely int
     ```
     ```bash
     exit
+    ```
+
+### Removing existing environment in each repository
+
+* At the root directory of the repository, run the following command to remove the environment created with `pipenv`
+    ```bash
+    pipenv --rm
+    ```
+* Note that sometimes a `Pipfile` and `Pipfile.lock` may have been created, and will mess with new environment creation. Simply remove the files so that you can setup a new environment based off `dependencies/requirements.txt`
+    ```bash
+    rm Pipfile*
+    ```
+
+### To check if there's any issue with environment
+
+* At the root directory of the repository, run the following command
+    ```bash
+    pipenv check
     ```
 
 ### Installing dependencies manually
