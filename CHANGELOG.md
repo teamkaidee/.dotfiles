@@ -82,6 +82,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
     - Removed custom `.zshrc`
     - Removed custom aliases
     - Removed custom config
+* node related installer
+* ruby related installer
+* visual studio code related installer
 
 ## [1.0.0] - 19 September 2018
 
