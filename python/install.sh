@@ -17,4 +17,4 @@ pyenv global 3.11
 
 # Install pipenv. This is the recommended installation
 echo "installing pipenv"
-pip install --user pipenv
+pip install --user --upgrade pipenv

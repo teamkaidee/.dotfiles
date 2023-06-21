@@ -15,12 +15,11 @@ This repo installed the following packages:
 
 * `pyenv` allows us to maintain / use separate python versions on the same machine.
 * [Their repository](https://github.com/pyenv/pyenv)'s readme is very detailed and provides a lot of information on how to use the tool.
-* We will not attempt to summarize it, but instead we will cover how we will use pyenv.
-
+* We will not attempt to summarize it, but instead we will cover how we will use `pyenv`.
 
 ### Installing additional python versions
 
-* To view all available python versions to pyenv, run the list command.
+* To view all available python versions to `pyenv`, run the list command.
     - Note that there's a lot of versions. if you're looking for a specific version piping it to `grep <version>` would make more sense.
     ```bash
     pyenv install -l
@@ -60,33 +59,58 @@ This repo installed the following packages:
 
 ## Pipenv
 
-* `pipenv` allows us to maintain isolated python environments. It operates by creating Pipfile (and Pipfile.lock) which contain project configurations and dependencies for that project.
-* This allows us to isolate the python packages of each repository. This is used in conjuction with our requirements.txt files in each repository.
-* Again, [their repository]((https://pipenv.readthedocs.io/en/latest/))'s readme has clear explanations on installation steps. Please follow from their readme to get it properly installed on your machine.
+* `pipenv` allows us to maintain isolated python environments. It operates by creating `Pipfile` (and `Pipfile.lock`) which contain project configurations and dependencies for that project.
+* This allows us to isolate the python packages of each repository. This is used in conjuction with our `requirements.txt` files in each repository.
+* Again, [their official documentation]((https://pipenv.readthedocs.io/en/latest/)) has clear explanations on installation steps. Please follow from their readme to get it properly installed on your machine.
+* Some useful pages from the documentation also are
+    - [CLI Reference page](https://pipenv.pypa.io/en/latest/cli/) contains the available commands and what they're for
+    - [Workflows page](https://pipenv.pypa.io/en/latest/workflows/) shows steps to take for common scenarios
+    - [Specifiers page](https://pipenv.pypa.io/en/latest/specifiers/) explains how to specify things such as the package version or basically anything in `Pipfile` / `Pipfile.lock`
 
 ### Setting up pipenv in each repository
 
-* If the repository is new or has not been initialised with pipenv (does not have Pipfile and/or Pipfile.lock), run
+* If the repository already has a `Pipfile.lock`, which should be the case unless you're creating a new repository, run
+    ```bash
+    pipenv sync
+    ```
+    - This will read the contents of `Pipfile.lock` and create a virtual environment based on it
+* If the repository is new or has not been initialised with pipenv (does not have `Pipfile` and/or `Pipfile.lock`), run
     ```bash
     pipenv install --python <python version> -r dependencies/requirements-dev.txt
     ```
     - **Note that the <python version> here must be the current active python version set by pyenv.**
-    - This is because pipenv can only use a python version that can be found on the $PATH. So even if you have the desired version installed, but it's not selected / activated by pyenv, it wouldn't be found.
-    - Note that if you have Oh my zsh, you can simply use the `pipenv` plugin, which auto activates the virtual environment on entry to the repo. It also auto deactivates when you try to navigate out of the repository. (But not if u directly navigate into another repo that has pipfile)
-    - The `-r` flag tells pipenv to read the dependencies required from a requirements.txt file. In most, if not all, repositories, this file is nested within the dependencies folder, and usually for local we have a `requirements-dev` file.
-    - The installation command will then create said python "virtual environment" and also register all the information in the aforementined pipfile.
-* If the repository already has a Pipfile.lock, run
-    ```bash
-    pipenv sync
-    ```
-    - This will read the contents of Pipfile.lock and create a virtual environment based on it
+    - This is because pipenv can only use a python version that can be found on the $PATH. So even if you have the desired version installed, but it's not selected / activated by `pyenv`, it wouldn't be found.
+    - Note that if you have Oh my zsh, you can simply use the `pipenv` plugin, which auto activates the virtual environment on entry to the repo. It also auto deactivates when you try to navigate out of the repository. (But not if u directly navigate into another repo that has `Pipfile`)
+    - The `-r` flag tells pipenv to read the dependencies required from a `requirements.txt` file. In most, if not all, repositories, this file is nested within the dependencies folder, and usually for local we have a `requirements-dev` file.
+    - The installation command will then create said python "virtual environment" and also register all the information in the aforementined `Pipfile`.
 
 ### Updating the virtual environment in each repository
-* Sometimes new packages are added to existing repositories
-* When you see a change in Pipfile.lock upon checking out the latest version, you can simply run sync again to keep your environment up to date
+
+#### Adding packages
+
+* Sometimes new packages are needed in an existing repository
+* To install new dependencies, use the following command
     ```bash
-    pipenv sync
+    pipenv install <package_name>
     ```
+* Using `pipenv install` instead of `pip install` will ensure that the new package is added to the `Pipfile`
+* This command will also install all dependencies of the specified package
+
+#### Removing packages
+
+* Sometimes packages are no longer required and need to be removed, simply run
+    ```bash
+    pipenv uninstall <package_name>
+    ```
+* **This will remove the specified package only. Dependencies will still be in the virtual environment, but not in the `Pipfile` nor `Pipfile.lock`**
+
+#### Removing unused packages
+
+* This scenario commonly occurs from running `pipenv uninstall` to remove a package and leaving some dependency packages behind. Simply run
+    ```bash
+    pipenv clean
+    ```
+* This command will uninstall *all* packages and reinstall only those specified in `Pipfile.lock`
 
 ### Activating the virtual environment in each repository
 
@@ -112,11 +136,13 @@ This is extremely important when you need to switch repositories (and likely int
 
 ### Removing existing environment in each repository
 
+* This step may be needed if you want to recreate your environment from scratch.
 * At the root directory of the repository, run the following command to remove the environment created with `pipenv`
     ```bash
     pipenv --rm
     ```
-* Note that sometimes a `Pipfile` and `Pipfile.lock` may have been created, and will mess with new environment creation. Simply remove the files so that you can setup a new environment based off `dependencies/requirements.txt`
+* This will only destroy the virtual environment, but preserve the created `Pipfile` and `Pipfile.lock` files
+* If the repository you're working on is still using `requirements.txt` and you need to create an environment from scratch using the dependencies listed in it, remove all `Pipfile`s first
     ```bash
     rm Pipfile*
     ```
@@ -130,7 +156,7 @@ This is extremely important when you need to switch repositories (and likely int
 
 ### Installing dependencies manually
 
-* As dependency is now being handled in Pipfile, `pip` is no longer being used by itself to install them.
+* As dependency is now being handled in `Pipfile`, `pip` is no longer being used by itself to install them.
 * To install dependencies `pipenv` is using `pip` format of the command.
     ```bash
     pipenv installl flask==1.0.0
@@ -148,4 +174,4 @@ This is extremely important when you need to switch repositories (and likely int
     ```bash
     pipenv lock
     ```
-    - This updates the Pipfile.lock file, so that other developers can see the new packages you've installed
+    - This updates the `Pipfile.lock` file, so that other developers can see the new packages you've installed
