@@ -74,7 +74,11 @@ This repo installed the following packages:
     pipenv sync
     ```
     - This will read the contents of `Pipfile.lock` and create a virtual environment based on it
-* If the repository is new or has not been initialised with pipenv (does not have `Pipfile` and/or `Pipfile.lock`), run
+* If the repository does not have a `Pipfile.lock`, but has a `Pipfile`, run
+  ```bash
+  pipenv install -d
+  ```
+* If the repository is new or has not been initialised with pipenv (does not have `Pipfile` and `Pipfile.lock`), run
     ```bash
     pipenv install --python <python version> -r dependencies/requirements-dev.txt
     ```
