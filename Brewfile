@@ -1,59 +1,13 @@
-cask_args appdir: '/Applications'
+brew "awscli"
+brew "circleci"
+brew "kubernetes-cli", link: false
+brew "libcouchbase@2", link: true
+brew "mysql", restart_service: true
+brew "postgresql"
+brew "redis", restart_service: true
+brew "pyenv"
 
-# Tap Repo
-tap 'caskroom/versions'
-tap 'caskroom/cask'
-tap 'caskroom/fonts'
-
-brew 'git'
-brew 'httpie'
-brew 'libcouchbase'
-brew 'mackup'
-brew 'nvm'
-brew 'pipenv'
-brew 'postgresql'
-brew 'pyenv'
-brew 'rbenv'
-brew 'rbenv-bundler'
-brew 'ruby-build'
-brew 'rust'
-brew 'tree'
-brew 'unar'
-brew 'wget'
-brew 'zsh'
-
-cask 'alfred'
-cask 'caffeine'
-cask 'daisydisk'
-cask 'dash'
-cask 'docker'
-cask 'dropbox'
-cask 'flux'
-cask 'font-fira-code'
-cask 'forticlient'
-cask 'google-chrome'
-cask 'google-chrome-canary'
-cask 'hammerspoon'
-cask 'iterm2'
-cask 'kaleidoscope'
-cask 'kite'
-cask 'macdown'
-cask 'postman'
-cask 'slack'
-cask 'sourcetree'
-cask 'sublime-text'
-cask 'the-unarchiver'
-cask 'visual-studio-code'
-
-# Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
-cask 'qlcolorcode'
-cask 'qlstephen'
-cask 'qlmarkdown'
-cask 'quicklook-json'
-cask 'qlimagesize'
-cask 'webpquicklook'
-cask 'suspicious-package'
-cask 'qlvideo'
-
-
-# cask 'docker-toolbox'
+cask "docker"
+cask "google-chrome"
+cask "postman"
+cask "slack"

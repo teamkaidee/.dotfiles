@@ -1,50 +1,44 @@
 # README
 
-Dotfiles for Kaidee developers. It's designed for every developer to kickstart their experience developing Kaidee. If you wish to add anything personal, please fork this repository and use your own.
+Dotfiles for Kaidee backend developers. It's designed to kickstart their experience developing Kaidee. If you wish to add anything personal, **please fork this repository and use your own**.
 
-This repo is setup as a baseline for developer to quickly install the application and getting ready to start. The content of this file is largely taken from [Zach Holman's version](https://github.com/holman/dotfiles).
+This repo will help to set a baseline for all backend developers. It installs *only the bare minimum* to have your development environment ready. If there are any required libraries / tools missing, feel free to create a PR to update this repo.
 
-# Installation
-
-Once you add SSH-key to your GitHub profile then clone and run bootstrap script as follow:
-
-```
-git clone git@github.com:teamkaidee/.dotfiles.git ~/.dotfiles
-~/.dotfiles/script/bootstrap
-```
-
-# What to do next?
-
-- You might want to consider using Alfred 3 instead of OSX's Spotlight.
-- Switch `Cmd + Space` to switch language input.
-- Switch `Option + Space` to start Alfred
+The content of this repo is largely derived from [Zach Holman's version](https://github.com/holman/dotfiles).
 
 # WTF is Dotfiles?
 
 [Dotfiles](https://dotfiles.github.io/) is a bootstrap script to automate the setup of your softwares, configurations, and environment.
 
+# Installation
+
+First make sure that you are able to access GitHub using SSH. To do that, follow the steps in [this GitHub docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+
+After that, run bootstrap script:
+
+```
+git clone git@github.com:teamkaidee/.dotfiles.git ~/.dotfiles
+~/.dotfiles/script/bootstrap
+```
+ Note that the above script will clone this dotfile repo into your local machine at `~/.dotfiles`.
+
 # Terminal configuration
 
-This script prioritise `iTerm2` and `ZSH` with [**Oh My ZSH!**](https://github.com/robbyrussell/oh-my-zsh) based configuration. It will setup [`agnoster`](https://github.com/agnoster/agnoster-zsh-theme) theme by default however this does not perfectly working out of the box and require manual setup to work. The script will installs the required fonts([Powerline](https://github.com/powerline/fonts)) and [Solarized](https://ethanschoonover.com/solarized/) colorscheme for it to be ready to use.
+This script will install [**Oh My ZSH!**](https://github.com/robbyrussell/oh-my-zsh) framework on the default `zsh` shell for mac. The Zsh will be setup with default settings, unless you already have it installed then your `.zshrc` will be preserved.
+Note that this installation will use the default `robbyrussell` theme. You can read more about OMZ themes [here](https://github.com/ohmyzsh/ohmyzsh#themes).
+This includes information such as themes avaialble, and how to enable them.
 
-You will need to go to the Preference setting of your iTerm2 as follow:
+No plugins will be enabled by default. You can read more about OMZ plugins [here](https://github.com/ohmyzsh/ohmyzsh#using-oh-my-zsh).
+This includes information such as plugins available, how to enable them, and how to write / use custom plugins.
 
-- Go to Profile > Colors > Color Presets > Pick `Solarized Dark` or `Solarized Light`
-- Go to Profile > Text > Change Font > Search for `Powerline` > Pick whatever you like but `Noto Mono for Powerline` is pretty nice.
+Recommended plugins to enable (minimally)
+```
+plugins=(aws docker docker-compose git kubectl pipenv)
+```
 
-After this you may remove Solarized folder from `~/.dotfiles/zsh` if necessary.
+# Python configuration
 
-# Why ZSH?
-
-[See for yourself](https://www.slideshare.net/jaguardesignstudio/why-zsh-is-cooler-than-your-shell-16194692?ref=http://zpalexander.com/switching-to-zsh/)
-
-# How can I customize this for my own use?
-
-Fork into your own repo then configure to your heart content.
-
-# Python
-
-See [python.md](python.md)
+See [python.md](python.md) for detailed instructions on managing your local python development environment.
 
 # What's next?
 
@@ -61,12 +55,3 @@ By default OSX use "^+Space" to switch between input sources(language), the key 
 
 1. Go to Preferences > Keyboard > Shortcuts > Input Sources
 2. Click on the old shortcut then press `⌘+Space`.
-
-# Shortcuts
-
-- To see all shortcuts configured type `alias`.
-- VS Code is a default code editor installed and it can be open with just `e`; For example; `e index.html` will open index.html in VS Code. 
-- Open dot file can be done with `dot -e`
-- Option and arrow allow you to jump to the next word to the left or right `⌥+->`.
-- Option + Control + arrow jump to the end of the line `⌥+⌘+<-`
-- [VS Code OSX Shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
