@@ -4,34 +4,42 @@
 
 # Python
 
+This document attempts to summarize how we manage our local development environments for python development.
+
 <details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#pyenv">Pyenv</a>
-      <ul>
-        <li><a href="#installing-additional-python-versions">Installing additional python versions</a></li>
-        <li><a href="#choosing-python-version">Choosing Python version</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#pipenv">Pipenv</a>
-      <ul>
-        <li><a href="#setting-up-local-dev-environment">Seting up Local Dev Environment</a></li>
-        <li><a href="#updating-the-virtual-environment-in-each-repository">Updating the virtual environment in each repository</a></li>
+    <summary>Table of Contents</summary>
+    <ol>
+        <li>
+            <a href="#pyenv">Pyenv</a>
             <ul>
-                <li><a href="#adding-new-package-dependencies">Adding new package dependencies</a></li>
-                <li><a href="#updating-requirements.txt">Updating requirements.txt</a></li>
-                <li><a href="#removing-packages">Removing packages</a></li>
-                <li><a href="#removing-unused-packages">Removing unused packages</a></li>
+                <li><a href="#installing-additional-python-versions">Installing additional python versions</a></li>
+                <li><a href="#choosing-python-version">Choosing Python version</a></li>
             </ul>
-        <li><a href="#activating-the-virtual-environment-in-each-repository">Activating the virtual environment in each repository</a></li>
-        <li><a href="#deactivating-virtual-environment">Deactivating virtual environment</a></li>
-        <li><a href="#removing-existing-environment-in-each-repository">Removing existing environment in each repository</a></li>
-        <li><a href="#to-check-if-there's-any-issue-with-environment">To check if there's any issue with environment</a></li>
-      </ul>
-    </li>
-  </ol>
+        </li>
+        <li>
+            <a href="#pipenv">Pipenv</a>
+            <ul>
+                <li><a href="#setting-up-local-dev-environment">Seting up Local Dev Environment</a></li>
+                <li><a href="#updating-the-virtual-environment-in-each-repository">Updating the virtual environment in each repository</a></li>
+                        <ul>
+                                <li><a href="#adding-new-package-dependencies">Adding new package dependencies</a></li>
+                                <li><a href="#updating-requirements.txt">Updating requirements.txt</a></li>
+                                <li><a href="#removing-packages">Removing packages</a></li>
+                                <li><a href="#removing-unused-packages">Removing unused packages</a></li>
+                        </ul>
+                <li><a href="#activating-the-virtual-environment-in-each-repository">Activating the virtual environment in each repository</a></li>
+                <li><a href="#deactivating-virtual-environment">Deactivating virtual environment</a></li>
+                <li><a href="#removing-existing-environment-in-each-repository">Removing existing environment in each repository</a></li>
+                <li><a href="#to-check-if-there's-any-issue-with-environment">To check if there's any issue with environment</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#linting">Linting</a>
+            <ul>
+                <li><a href="#pre-commit-hooks">Pre-commit Hooks</a></li>
+            </ul>
+        </li>
+    </ol>
 </details>
 
 There's no `Virtualenv (venv)`!? This is by design. Python development should be switched to use `pipenv`.
@@ -99,7 +107,7 @@ This repo installed the following packages:
 
 * `pipenv` allows us to maintain isolated python environments. It operates by creating `Pipfile` (and `Pipfile.lock`) which contain project configurations and dependencies for that project.
 * This allows us to isolate the python packages of each repository. This is used in conjuction with our `requirements.txt` files in each repository.
-* Again, [their official documentation]((https://pipenv.readthedocs.io/en/latest/)) has clear explanations on installation steps. Please follow from their readme to get it properly installed on your machine.
+* Again, [their official documentation](https://pipenv.readthedocs.io/en/latest/) has clear explanations on installation steps. Please follow from their readme to get it properly installed on your machine.
 * Some useful pages from the documentation also are
     - [CLI Reference page](https://pipenv.pypa.io/en/latest/cli/) contains the available commands and what they're for
     - [Workflows page](https://pipenv.pypa.io/en/latest/workflows/) shows steps to take for common scenarios
@@ -233,5 +241,40 @@ This is extremely important when you need to switch repositories (and likely int
     ```zsh
     pipenv check
     ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Linting
+
+### Pre-commit Hooks
+
+* `pre-commit` allows us to specify a list of steps to be taken prior to committing
+* We will use this to automate linting of our codebase
+* [Official site](https://pre-commit.com/)
+
+#### Installation
+
+* There are multiple ways to install pre-commit. For now, we're installing it as a python package via pip on each individual repository
+* If you'd like to have it available on your local machine, you can follow [their installation steps](https://pre-commit.com/#install)
+
+#### Getting started
+
+* The git hook scripts are implemented within the `.git` folders of each repository
+* Because of this, it's necessary to run `pre-commit install` at least once for each repository that you clone
+* After running this command, the git hooks will then be activated, and the configured pre commit hooks will run on each commit.
+* Otherwise you can manually run the pre-commit hooks
+* Not all repositories have pre-commit configured, to see if it's configured for the repository, look out for the `.pre-commit-config.yaml` file in the repository
+
+### Tools used
+
+* We use [black](https://pypi.org/project/black/) and [flake8](https://pypi.org/project/flake8/) as our code style formatter
+* For imports, we have [isotrt](https://pypi.org/project/isort/) to sort the imports and also [autoflake](https://pypi.org/project/autoflake/0.1/) to automatically remove unused imports
+* For static type checking, we have [mypy](https://mypy-lang.org/)
+
+### Configuration
+
+* Most of the tools are configured within a single `pyproject.toml` file, with the exception of flake8
+* Flake8 configurations are either being passed as arguments within the `pre-commit-config.yaml` or within a `setup.cfg` file
+* Line length for is set to 110 for most repositories. This is mainly because the default 80 is too narrow for most modern display devices. Although PEP8 recommends 80 and allows up to 100, 110 is selected in consideration for code reviews on github
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
