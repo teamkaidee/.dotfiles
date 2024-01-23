@@ -109,9 +109,9 @@ This repo installed the following packages:
 * This allows us to isolate the python packages of each repository. This is used in conjuction with our `requirements.txt` files in each repository.
 * Again, [their official documentation](https://pipenv.readthedocs.io/en/latest/) has clear explanations on installation steps. Please follow from their readme to get it properly installed on your machine.
 * Some useful pages from the documentation also are
-    - [CLI Reference page](https://pipenv.pypa.io/en/latest/cli/) contains the available commands and what they're for
-    - [Workflows page](https://pipenv.pypa.io/en/latest/workflows/) shows steps to take for common scenarios
-    - [Specifiers page](https://pipenv.pypa.io/en/latest/specifiers/) explains how to specify things such as the package version or basically anything in `Pipfile` / `Pipfile.lock`
+    - [CLI Reference page](https://pipenv.pypa.io/en/latest/cli.html) contains the available commands and what they're for
+    - [Workflows page](https://pipenv.pypa.io/en/latest/workflows.html) shows steps to take for common scenarios
+    - [Specifiers page](https://pipenv.pypa.io/en/latest/specifiers.html) explains how to specify things such as the package version or basically anything in `Pipfile` / `Pipfile.lock`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
