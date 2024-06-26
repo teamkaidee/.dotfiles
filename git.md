@@ -14,7 +14,6 @@ This document attempts to summarize how we use git in our development cycle; and
 			<ul>
 				<li><a href="#gitflow-workflow">Gitflow Workflow</a></li>
 				<li><a href="#naming-convention">Naming Convention</a></li>
-				<li><a href="#manual-deletion">Manual Deletion</a></li>
 			</ul>
 		</li>
 		<li>
@@ -62,14 +61,6 @@ This is a legacy "issue", where we used to have multiple services that performs 
 For release branches, instead of the example in Gitflow Workflow of `release/0.1.0` we use `release/v0.1.0_XXX-D`, with the notable addition of the character `v`.
 
 As for the numbering of releases, we follow the [Semantic Versioning](https://semver.org/)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-### Manual Deletion
-
-Branches do not auto-delete on merging on Github. The reason for this is that we have an automation that checks on merges into `master` to see if there's a need to down-merge into `develop`. See [thanos-api](#thanos-api)
-
-Therefore, on merge, please wait awhile to see if the automation creates a linked PR, if not manually delete the branch.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -134,9 +125,7 @@ When making changes in `.pipeline`, the changes should be isolated into a PR and
 
 This is useful for when we have `hotfix` branches, or when our `release` branches have bugfix commits. On merge into `master`, the automation will automatically create a new PR to merge into `develop` if it detects changes. After merging the new PR, it will also delete the branch.
 
-The problem comes when there's no need for the automation, for example if it's a regular `feature` branch or a `release` branch without any changes. As the automation doesn't take any action, it would not delete the branch after merge. This is a feature in the works for Thanos API.
-
-It is also not possible to enable auto-deletion on merge on Github settings, as this immediately deletes the branch on clicking merge, and our automation will fail.
+This automation also checks for merges into `develop` branches. If it's a case where we're merging into `develop`, then no further action will be required on the branch and the automation will attempt to delete the branch.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
